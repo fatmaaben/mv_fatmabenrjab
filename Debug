@@ -1,0 +1,6 @@
+[35msrc/Controller/VinylController.php[m[36m:[muse App\Repository\Vinyl[1;31mMixRepository[m;
+[35msrc/Controller/VinylController.php[m[36m:[m        private Vinyl[1;31mMixRepository[m $mixRepository
+[35msrc/Controller/VinylController.php[m[36m:[m    public function browse(Vinyl[1;31mMixRepository[m $mixRepository, string $slug = null): Response
+[35msrc/Entity/VinylMix.php[m[36m:[muse App\Repository\Vinyl[1;31mMixRepository[m;
+[35msrc/Entity/VinylMix.php[m[36m:[m#[ORM\Entity(repositoryClass: Vinyl[1;31mMixRepository[m::class)]
+[35msrc/Repository/VinylMixRepository.php[m[36m:[mclass Vinyl[1;31mMixRepository[m extends ServiceEntityRepository
