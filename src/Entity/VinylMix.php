@@ -27,7 +27,7 @@ class VinylMix
     private ?string $genre = null;
 
     #[ORM\Column]
-    private \DateTimeImmutable $createdAt ;
+    private \DateTimeImmutable $createdAt;
 
     #[ORM\Column]
     private int $votes = 0;
@@ -112,6 +112,14 @@ class VinylMix
         $this->votes = $votes;
 
         return $this;
+    }
+    public function upVote(): void
+    {
+        $this->votes++;
+    }
+    public function downVote(): void
+    {
+        $this->votes--;
     }
     public function getVotesString(): string
     {
