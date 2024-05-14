@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<style>
+		/* Styles for the contact form */
+		.contact-form {
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #041439;
+		}
+
+		.contact-form .form-group {
+			margin-bottom: 20px;
+		}
+
+		.contact-form .form-label {
+			font-weight: bold;
+		}
+
+		.contact-form .form-control {
+			border-radius: 5px;
+		}
+
+		.contact-form .btn-primary {
+			border-radius: 5px;
+		}
+	</style>
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5">
+		<h1 class="mb-4">Contactez-nous</h1>
+
+		{{ form_start(contactForm, {'attr': {'class': 'contact-form'}}) }}
+		<div class="form-group">
+			{{ form_label(contactForm.name, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(contactForm.name, {'attr': {'class': 'form-control', 'placeholder': 'Votre nom'}}) }}
+			<div class="invalid-feedback">
+				Veuillez entrer votre nom.
+			</div>
+		</div>
+
+		<div class="form-group">
+			{{ form_label(contactForm.email, 'Votre Email', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(contactForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Votre email'}}) }}
+			<div class="invalid-feedback">
+				Veuillez entrer une adresse email valide.
+			</div>
+		</div>
+
+		<div class="form-group">
+			{{ form_label(contactForm.subject, 'Sujet', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(contactForm.subject, {'attr': {'class': 'form-control', 'placeholder': 'Sujet'}}) }}
+			<div class="invalid-feedback">
+				Veuillez entrer un sujet.
+			</div>
+		</div>
+
+		<div class="form-group">
+			{{ form_label(contactForm.message, 'Message', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(contactForm.message, {'attr': {'class': 'form-control', 'rows': 5, 'placeholder': 'Votre message'}}) }}
+			<div class="invalid-feedback">
+				Veuillez entrer un message.
+			</div>
+		</div>
+
+		<div class="form-group">
+			{{ form_widget(contactForm.send, {'attr': {'class': 'btn btn-primary'}}) }}
+		</div>
+		{{ form_end(contactForm) }}
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-3">
+				{{ message }}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
